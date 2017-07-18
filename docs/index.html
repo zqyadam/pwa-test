@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PWA test</title>
+    <link rel="manifest" href="manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw-test1.js', { scope: '/' }).then(function(registration) {
+                console.log('regist serviceWorker success');
+            }).catch(function(err) {
+                console.log('regist serviceWorker fail');
+                console.log(err);
+            })
+        })
+    }
+    </script>
+</head>
+
+<body>
+<img id='image1'>
+<button onclick="setURL()">click</button>
+<script>
+	function setURL() {
+		let img = document.getElementById('image1');
+		img.src = "https://unsplash.it/200/200"
+	}
+</script>
+</body>
+
+</html>
