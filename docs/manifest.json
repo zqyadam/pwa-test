@@ -1,6 +1,6 @@
 {
-    "short_name": "test",
     "name": "pwa-test",
+    "short_name": "test",
     "icons": [
     {
         "src": "./img/todolist_32x32.png",

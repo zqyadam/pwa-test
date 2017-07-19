@@ -15,20 +15,31 @@
                 console.log(err);
             })
         })
+
+        window.addEventListener('beforeinstallprompt', function(e) {
+            // beforeinstallprompt event fired
+            e.userChoice.then(function(choiceResult) {
+                if (choiceResult.outcome === 'dismissed') {
+                    alert('用户取消安装应用');
+                } else {
+                    alert('用户安装了应用');
+                }
+            });
+        });
     }
     </script>
 </head>
 
 <body>
-<img id='image1'>
-<img src='./img/todolist_144x144.png'/>
-<button onclick="setURL()">click</button>
-<script>
-	function setURL() {
-		let img = document.getElementById('image1');
-		img.src = "https://unsplash.it/200/200"
-	}
-</script>
+    <img id='image1'>
+    <img src='./img/todolist_144x144.png' />
+    <button onclick="setURL()">click</button>
+    <script>
+    function setURL() {
+        let img = document.getElementById('image1');
+        img.src = "https://unsplash.it/200/200"
+    }
+    </script>
 </body>
 
 </html>
